@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+psycopg2-binary = "*"
+flask-migrate = "*"
+flask-sqlalchemy = "*"
+pytest = "*"
+flask = "*"
+mypy = "*"
+types-flask-migrate = "*"
+geoalchemy2 = "*"
+sqlalchemy-utils = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"

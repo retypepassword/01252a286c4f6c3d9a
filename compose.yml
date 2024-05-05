@@ -1,0 +1,23 @@
+services:
+  db:
+    build: ./db
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - "./gisdata:/gisdata:rw"
+      - "./db/init.sh:/docker-entrypoint-initdb.d/init.sh"
+    networks:
+      - app
+  flaskapp:
+    image: python:3.12.2-alpine
+    volumes:
+      - ".:/usr/src/app:rw"
+    command: /usr/src/app/run.sh
+    ports:
+      - "127.0.0.1:5000:5000"
+    depends_on:
+      - db
+    networks:
+      - app
+networks:
+  app:
